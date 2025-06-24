@@ -63,7 +63,10 @@ _Caso d’uso UC6: Visualizzazione degli Utenti Registrati – Attore Primario: 
 | --- | --- |
 
 **MODELLO DI DOMINIO**:
+
 ![Descrizione immagine](img/ModelloDiDominio.png)
+
+
 **PROGETTAZIONE LATO DB**: (PostgreSQL)
 
 DIAGRAMMA ENTITA’-RELAZIONE
