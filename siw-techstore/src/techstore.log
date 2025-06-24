@@ -1,8 +1,0 @@
-2025-05-19 15:11:53 INFO  [restartedMain] i.u.s.SiwTechstoreApplication - Starting SiwTechstoreApplication using Java 24.0.1 with PID 22384 (C:\Users\guido\Desktop\Ecommerce\siw-techstore\target\classes started by guido in C:\Users\guido\Desktop\Ecommerce\siw-techstore)
-2025-05-19 15:11:53 DEBUG [restartedMain] i.u.s.SiwTechstoreApplication - Running with Spring Boot v3.4.5, Spring v6.2.6
-2025-05-19 15:11:53 INFO  [restartedMain] i.u.s.SiwTechstoreApplication - No active profile set, falling back to 1 default profile: "default"
-2025-05-19 15:11:56 INFO  [restartedMain] i.u.s.SiwTechstoreApplication - Starting SiwTechstoreApplication using Java 24.0.1 with PID 19660 (C:\Users\guido\Desktop\Ecommerce\siw-techstore\target\classes started by guido in C:\Users\guido\Desktop\Ecommerce\siw-techstore)
-2025-05-19 15:11:56 DEBUG [restartedMain] i.u.s.SiwTechstoreApplication - Running with Spring Boot v3.4.5, Spring v6.2.6
-2025-05-19 15:11:56 INFO  [restartedMain] i.u.s.SiwTechstoreApplication - No active profile set, falling back to 1 default profile: "default"
-2025-05-19 15:12:01 INFO  [restartedMain] i.u.s.SiwTechstoreApplication - Started SiwTechstoreApplication in 4.838 seconds (process running for 5.174)
-2025-05-19 15:13:29 INFO  [http-nio-8080-exec-3] i.u.s.controller.UtenteController - L'utente: gui98 con ruolo: [USER] ha effettuato l'accesso
