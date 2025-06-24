@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/home/carrello.css}" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container">
+		<header>
+			<h1 data-aos="fade-down" data-aos-duration="1500" class="logo">TechStore</h1>
+			<a data-aos="fade-down" data-aos-duration="1500" class="btn-signing"
+				th:href="@{/shop/visualizzaShop}">Torna allo shop</a>
+
+		</header>
+	</div>
+	<main class="carrello-container">
+		<div th:if="${param.success}" class="success-message">✅ Ordine
+			effettuato con successo!</div>
+		<div th:if="${param.modifica}" class="success-message">✅ Modifica
+			effettuata con successo!</div>
+		<h2 data-aos="fade-up" data-aos-duration="1000">Il tuo Carrello</h2>
+
+
+		<div th:each="voce : ${vociCarrello}" class="voce-carrello"
+			data-aos="fade-left" data-aos-duration="800">
+			<img th:src="@{'/images/prodotti/' + ${voce.prodotto.getImage()}}"
+				alt="Immagine prodotto">
+			<div class="info-prodotto">
+				<p>
+					<b th:text="${voce.prodotto.nomeProdotto}">Prodotto</b>
+				</p>
+				<p>
+					Prezzo: <span
+						th:text="${#numbers.formatDecimal(voce.prezzo, 2, 2)} + ' €'"></span>
+				</p>
+			</div>
+			<div class="controls">
+				<form th:action="@{/carrello/decrementa}" method="post">
+					<input type="hidden" name="idVoce" th:value="${voce.idVoceOrdine}">
+					<button type="submit">➖</button>
+				</form>
+				<span th:text="${voce.quantita}"></span>
+				<form th:action="@{/carrello/incrementa}" method="post">
+					<input type="hidden" name="idVoce" th:value="${voce.idVoceOrdine}">
+					<button type="submit">➕</button>
+				</form>
+				<form th:action="@{/carrello/rimuovi}" method="post">
+					<input type="hidden" name="idVoce" th:value="${voce.idVoceOrdine}">
+					<button type="submit" class="remove-btn">🗑</button>
+				</form>
+			</div>
+		</div>
+
+
+		<h4 class="totale-carrello" data-aos="zoom-in" data-aos-duration="800">
+			Totale: <span
+				th:text="${#numbers.formatDecimal(totale, 2, 2)} + ' €'"></span>
+		</h4>
+
+		<a th:href="@{/carrello/checkout}" class="btn-checkout"
+			>Checkout</a>
+	</main>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+
+</body>
+</html>

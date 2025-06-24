@@ -1,0 +1,183 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: black;
+	color: #e7e7e7;
+	min-height: 100vh;
+	line-height: 1.5;
+}
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 5rem;
+}
+
+header h1{
+	margin: 0;
+	font-size: 3rem;
+	font-weight: 300;
+}
+
+nav{
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+	margin-left: -5%;
+}
+
+nav a{
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	transition: color 0.2s ease;
+	text-decoration: none;
+	color: inherit;
+	z-index: 999;
+}
+
+nav a:hover{
+	color: #a7a7a7;
+}
+
+.btn-signing{
+	background-color: #a7a7a7;
+	color: black;
+	padding: 0.8rem 2rem;
+	border-radius: 50px;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: background-color 0.2s ease;
+	cursor: pointer;
+	z-index: 999;	
+}
+
+.btn-signing:hover{
+	background-color: white;
+}
+
+/* Contenitore principale del form */
+.form-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #a7a7a7;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titolo */
+.form-container h2 {
+  text-align: center;
+  color: #3b3b3b;
+  margin-bottom: 1.5rem;
+}
+
+/* Etichette */
+.form-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Campi di input */
+.form-container input[type="text"],
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="file"]:focus {
+  border-color: black;
+  outline: none;
+  background-color: #fff;
+}
+
+/* File input - bottone interno */
+input[type="file"]::file-selector-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Testo di supporto */
+.form-text {
+  font-size: 0.85rem;
+  color: black;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Errori di validazione */
+.text-danger {
+  color: #e63946;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Pulsanti */
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: black;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-secondary {
+  background-color: black;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Pulsanti allineati */
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+

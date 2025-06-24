@@ -1,0 +1,61 @@
+CREATE TABLE Utente(
+	idCliente int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome varchar(50) NOT NULL,
+	cognome varchar(50) NOT NULL,
+	username varchar(50) NOT NULL,
+	pswd varchar(255) NOT NULL,
+	ruolo varchar(7) NOT NULL
+);
+
+CREATE TABLE Ordine(
+	idOrdine int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	idCliente int NOT NULL,
+	dataOrdine date NOT NULL,
+	totale decimal(10,2) NOT NULL,
+	via varchar(50) NOT NULL,
+	numero int NOT NULL,
+	CAP int NOT NULL,
+	citta varchar(20) NOT NULL,
+	paese varchar(15) NOT NULL,
+	CONSTRAINT fk_ordine_utente
+		FOREIGN KEY(idCliente)
+		REFERENCES Utente(idCliente)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+);
+
+CREATE TABLE Categoria(
+	idCategoria int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome varchar(100) NOT NULL
+);
+
+CREATE TABLE Prodotto(
+	idProdotto int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	idCategoria int NOT NULL,
+	nome varchar(100) NOT NULL,
+	descrizione varchar(255) NOT NULL,
+	prezzo int NOT NULL,
+	CONSTRAINT fk_prodotto_categoria
+		FOREIGN KEY(idCategoria)
+		REFERENCES Categoria(idCategoria)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+);
+
+CREATE TABLE VoceOrdine(
+	idVoceOrdine int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	idOrdine int NOT NULL,
+	idProdotto int NOT NULL,
+	quantita int NOT NULL,
+	prezzoRelativo decimal(10,2) NOT NULL,
+	CONSTRAINT fk_voceOrdine_ordine
+		FOREIGN KEY(idOrdine)
+		REFERENCES Ordine(idOrdine)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT fk_voceOrdine_prodotto
+		FOREIGN KEY(idProdotto)
+		REFERENCES Prodotto(idProdotto)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+);

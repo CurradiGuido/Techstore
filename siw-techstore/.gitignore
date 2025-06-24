@@ -1,0 +1,73 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Esclude tutti i file nella cartella log
+logs/
+*.logs/ 
+
+*.drawio.bkp
+
+# Esclude il file Spring boot configuration
+/src/main/resources/application.properties
+/src/main/resources/application.yml
+/src/main/resources/application-dev.properties
+/src/main/resources/logback-spring.xml
+
+# Esclude classi compilate
+*.class
+*.jar
+*.war
+*.ear
+
+#Esclude file temporanei
+*.tmp
+*.swp
+*.swo
+*.bak
+*~
+
+# Escludi Upload locali
+/uploads/
+uploads/
+/src/main/resources/static/img/upload/
+ReadHub/uploads/
+
+# Esclude i file di Eclipse
+.project
+.classpath
+.settings/
+
+# Esclude i file di Maven
+/target/
+/build/

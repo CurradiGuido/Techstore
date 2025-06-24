@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuova Categoria - TechStore</title>
+  <link rel="stylesheet" href="/css/home/navbar.css">
+  <link rel="stylesheet" href="/css/admin/categoria/aggiungiCategoria.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar" data-aos="fade-down" data-aos-duration="1000">
+    <h1 class="logo">TechStore</h1>
+  </header>
+
+  <!-- Form Categoria -->
+  <div class="form-container" data-aos="zoom-in" data-aos-duration="1000">
+    <h2 data-aos="fade-up" data-aos-delay="100">Inserisci una nuova categoria</h2>
+    <form enctype="multipart/form-data" method="post"
+          th:action="@{/admin/categoria/create}" th:object="${categoriaDTO}">
+
+      <label for="nome" data-aos="fade-right" data-aos-delay="200">Nome categoria</label>
+      <input type="text" id="nome" name="nome" placeholder="Es. Accessori Gaming"
+             th:field="${categoriaDTO.nomeCategoria}" data-aos="fade-left" data-aos-delay="200">
+      <p th:if="${#fields.hasErrors('nomeCategoria')}" th:errorclass="text-danger"
+         th:errors="${categoriaDTO.nomeCategoria}" data-aos="fade-up" data-aos-delay="300"></p>
+
+      <label for="descrizione" data-aos="fade-right" data-aos-delay="300">Descrizione</label>
+      <input type="text" id="descrizione" name="descrizione"
+             placeholder="inserisci una descrizione.."
+             th:field="${categoriaDTO.descrizione}" data-aos="fade-left" data-aos-delay="300">
+      <p th:if="${#fields.hasErrors('descrizione')}" th:errorclass="text-danger"
+         th:errors="${categoriaDTO.descrizione}" data-aos="fade-up" data-aos-delay="400"></p>
+
+      <label for="image" data-aos="fade-right" data-aos-delay="400">Immagine</label>
+      <input class="form-control" type="file" id="image" th:field="${categoriaDTO.image}"
+             data-aos="fade-left" data-aos-delay="400">
+      <div class="form-text" data-aos="fade-up" data-aos-delay="500">
+        Seleziona un'immagine per rappresentare la categoria (formati supportati: .jpg, .png).
+      </div>
+      <p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger"
+         th:errors="${categoriaDTO.image}" data-aos="fade-up" data-aos-delay="500"></p>
+
+      <div class="d-flex justify-content-between" data-aos="fade-up" data-aos-delay="600">
+        <a th:href="@{/admin/categoria/visualizzaCategorie}" class="btn btn-secondary rounded-pill">
+          Indietro
+        </a>
+        <button type="submit" class="btn btn-primary rounded-pill">
+          Aggiungi Categoria
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>

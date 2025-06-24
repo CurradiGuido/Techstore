@@ -1,0 +1,236 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: black;
+	color: #e7e7e7;
+	min-height: 100vh;
+	line-height: 1.5;
+}
+
+/* Container centrale */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+header {
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 5rem;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.6); /* sfondo traslucido */
+	backdrop-filter: blur(8px); /* effetto sfocatura */
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+header h1{
+	margin: 0;
+	font-size: 3rem;
+	font-weight: 300;
+}
+
+.logo {
+  margin: 0;
+  font-size: 3rem;
+  color: white;
+}
+
+.btn-signing{
+	background: #a7a7a7;
+	color: black;
+	padding: 0.8rem 2rem;
+	border-radius: 50px;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: background-color 0.2s ease;
+	cursor: pointer;
+	z-index: 999;
+}
+
+.btn-signing:hover{
+	background-color: white;
+}
+
+.container{
+	margin-top: 8rem;
+}
+
+
+/* Profilo utente sezione */
+.profilo-utente {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+}
+
+/* Foto profilo e form */
+.profile-photo {
+  flex: 1 1 280px;
+  text-align: center;
+}
+
+#img-preview {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  border: 2px solid #444;
+  margin-bottom: 15px;
+}
+
+/* File input e bottoni */
+.file-input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-secondary {
+  background-color: black;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Dati personali */
+.profile-data {
+  flex: 2 1 500px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: black;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+/* Bottone salva */
+.btn-primary {
+  background-color: black;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3700b3;
+}
+
+/* Storico ordini */
+.storico-ordini {
+  margin-top: 50px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+}
+
+.section-title {
+  color: black;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+/* Tabelle */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0e0e0;
+}
+
+.orders-table thead {
+  background-color: #333;
+}
+
+.orders-table th, .orders-table td {
+  padding: 14px 12px;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+.orders-table tbody tr:nth-child(odd) {
+  background-color: #2a2a2a;
+}
+
+.orders-table tbody tr:hover {
+  background-color: #3d3d3d;
+  cursor: pointer;
+}
+
+.success-message {
+    background-color: #27ae60;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeOut 3s ease-out 2s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+

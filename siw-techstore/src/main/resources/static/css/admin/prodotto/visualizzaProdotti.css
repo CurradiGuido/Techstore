@@ -1,0 +1,170 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
+	background-color: black;
+	color: #e7e7e7;
+	min-height: 100vh;
+	line-height: 1.5;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6); /* sfondo traslucido */
+  backdrop-filter: blur(8px); /* effetto sfocatura */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+header h1 {
+	margin: 0;
+	font-size: 3rem;
+	font-weight: 300;
+}
+
+header a {
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	transition: color 0.2s ease;
+	text-decoration: none;
+	color: inherit;
+	z-index: 999;
+}
+
+header a:hover {
+	color: #a7a7a7;
+}
+
+.btn-signing {
+	background-color: #a7a7a7;
+	color: black;
+	padding: 0.8rem 2rem;
+	border-radius: 50px;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: background-color 0.2s ease;
+	cursor: pointer;
+	z-index: 999;
+}
+
+.btn-signing:hover {
+	background-color: white;
+	color: black;
+}
+
+.btn {
+	padding: 0.6rem 1.2rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	transition: background-color 0.3s;
+	font-weight: bold;
+}
+
+.btn-edit {
+	background-color: #4fa3ff;
+	color: #fff;
+}
+
+.btn-edit:hover {
+	background-color: #368be0;
+}
+
+.btn-delete {
+	background-color: #ff4f4f;
+	color: #fff;
+}
+
+.btn-delete:hover {
+	background-color: #e03d3d;
+}
+
+.page-content {
+	margin: 7rem auto 3rem auto;
+	padding: 1rem 5rem;
+	overflow-x: auto;
+}
+
+.page-content table {
+	width: 100%;
+	max-width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 9px;
+	overflow: hidden;
+}
+
+.page-content th, .page-content td {
+	padding: 1rem;
+	text-align: left;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.page-content td:nth-child(3), /* descrizione */ .page-content td:nth-child(2)
+	{ /* nome */
+	max-width: 200px;
+}
+
+.new-category-btn {
+	margin-top: 2rem;
+	background-color: white;
+	color: black;
+	padding: 0.7rem 1.5rem;
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.new-category-btn:hover {
+	background-color: #a7a7a7;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #1e1e1e;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+th, td {
+	padding: 1rem 5rem;
+	text-align: left;
+	border-bottom: 1px solid #333;
+}
+
+th {
+	background-color: #2a2a2a;
+	color: white;
+}
+
+td {
+	color: #ddd;
+}
+
+.actions {
+	display: flex;
+	gap: 10px; /* Spazio tra Modifica ed Elimina */
+	padding-right: 2rem;
+}

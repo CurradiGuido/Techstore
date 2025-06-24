@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Completa Profilo</title>
+    <link rel="stylesheet" th:href="@{/css/home/complete-profile.css}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" data-aos="fade-up">
+        <h2>Completa il tuo profilo</h2>
+
+        <form th:action="@{/oauth/complete}" th:object="${utente}" method="post">
+			<input type="hidden" th:field="*{email}" />
+			
+            <label>Nome:</label>
+            <input type="text" th:field="*{nome}" required />
+
+            <label>Cognome:</label>
+            <input type="text" th:field="*{cognome}" required />
+
+            <label>Username:</label>
+            <input type="text" th:field="*{username}" required />
+
+            <button type="submit">Conferma</button>
+        </form>
+
+        <a href="/" class="back-button">← Torna indietro</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contatti - TechStore</title>
+<link href="/css/home/contact.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+	<div class="layer-blur"></div>
+	<div class="container">
+		<header>
+			<h1 data-aos="fade-down" data-aos-duration="1500" class="logo">TechStore</h1>
+			<nav>
+				<a class="btn-signing" th:href="@{/utente/user/home}" data-aos="fade-down"
+					data-aos-duration="1500">Home</a>
+			</nav>
+		</header>
+
+		<main class="content">
+
+			<div th:if="${success}" class="success-message" data-aos="fade-down"
+				data-aos-duration="1500">
+				<strong th:text="${success}"></strong>
+			</div>
+
+			<h2 data-aos="fade-up" data-aos-duration="1500">Contattaci</h2>
+			<p data-aos="fade-up" data-aos-delay="300" class="description">
+				Hai domande? Scrivici o vieni a trovarci!</p>
+			<div data-aos="fade-up" data-aos-delay="500" class="contact-info">
+				<p data-aos="fade-down" data-aos-duration="2000">
+					<strong>Email:</strong> support@techstore.it
+				</p>
+				<p data-aos="fade-down" data-aos-duration="2500">
+					<strong>Telefono:</strong> +39 0123 456789
+				</p>
+				<p data-aos="fade-down" data-aos-duration="3000">
+					<strong>Indirizzo:</strong> Via Innovazione 10, Roma
+				</p>
+			</div>
+
+			<!-- Form di contatto -->
+			<section class="contact-form" data-aos="fade-up" data-aos-delay="700">
+				<h3 data-aos="fade-down" data-aos-duration="3500">Invia un
+					messaggio</h3>
+				<form action="/send-message" method="POST">
+					<div class="form-group">
+						<label for="name">Nome</label> <input type="text" id="name"
+							name="name" required />
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email</label> <input type="email" id="email"
+							name="email" required />
+					</div>
+
+					<div class="form-group">
+						<label for="message">Messaggio</label>
+						<textarea id="message" name="message" rows="4" required></textarea>
+					</div>
+
+					<button type="submit">Invia Messaggio</button>
+				</form>
+			</section>
+		</main>
+	</div>
+
+	<script type="module"
+		src="https://unpkg.com/@splinetool/viewer@1.9.89/build/spline-viewer.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+</html>

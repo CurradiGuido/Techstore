@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registrazione - TechStore</title>
+<link href="/css/home/register.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<img class="image-gradient" src="/images/homePage/gradient.png"
+		alt="gradient">
+	<div class="layer-blur"></div>
+
+	<div class="container">
+		<header>
+			<h1 data-aos="fade-down" data-aos-duration="1500" class="logo">TechStore</h1>
+			<a data-aos="fade-down" data-aos-duration="1500" class="btn-signing"
+				th:href="@{/}">Home</a>
+		</header>
+
+		<main>
+			<div class="login-form-container" data-aos="fade-up"
+				data-aos-duration="2000">
+				<h2>Crea il tuo account</h2>
+
+
+				<div th:if="${success}" class="success-message" data-aos="fade-down"
+					data-aos-duration="1500">
+					<strong>Account creato con successo!</strong>
+				</div>
+
+
+
+
+				<form enctype="multipart/form-data" th:href="@{/utente/register}"
+					method="post" th:object="${utenteDTO}" class="login-form">
+
+					<div class="form-group">
+						<label for="nome">Nome</label> <input type="text" id="nome"
+							name="nome" th:field="${utenteDTO.nome}">
+						<p th:if="${#fields.hasErrors('nome')}"
+							th:errorclass="text-danger" th:errors="${utenteDTO.nome}"></p>
+
+					</div>
+
+					<div class="form-group">
+						<label for="cognome">Cognome</label> <input type="text"
+							id="cognome" name="cognome" th:field="${utenteDTO.cognome}">
+						<p th:if="${#fields.hasErrors('cognome')}"
+							th:errorclass="text-danger" th:errors="${utenteDTO.cognome}"></p>
+					</div>
+
+					<div class="form-group">
+						<label for="indirizzo">email</label> <input type="text"
+							id="indirizzo" name="indirizzo" th:field="${utenteDTO.email}">
+						<p th:if="${#fields.hasErrors('email')}"
+							th:errorclass="text-danger" th:errors="${utenteDTO.email}"></p>
+					</div>
+
+					<div class="form-group">
+						<label for="username">Username</label> <input type="text"
+							id="username" name="username" th:field="${utenteDTO.username}">
+						<p th:if="${#fields.hasErrors('username')}"
+							th:errorclass="text-danger" th:errors="${utenteDTO.username}"></p>
+					</div>
+
+					<label for="image" data-aos="fade-right" data-aos-delay="400">Immagine</label>
+					<input class="form-control" type="file" id="image"
+						th:field="${utenteDTO.image}" data-aos="fade-left"
+						data-aos-delay="400">
+					<div class="form-text" data-aos="fade-up" data-aos-delay="500">
+						Seleziona un'immagine per rappresentare il prodotto (formati
+						supportati: .jpg, .png).</div>
+					<p th:if="${#fields.hasErrors('image')}"
+						th:errorclass="text-danger" th:errors="${utenteDTO.image}"
+						data-aos="fade-up" data-aos-delay="500"></p>
+
+					<div class="form-group">
+						<label for="password">Password</label> <input type="password"
+							id="password" name="password" th:field="${utenteDTO.password}">
+						<p th:if="${#fields.hasErrors('password')}"
+							th:errorclass="text-danger" th:errors="${utenteDTO.password}"></p>
+					</div>
+
+					<div class="form-group">
+						<label for="password">Confirm Password</label> <input
+							type="password" id="confirmPassword" name="confirmPassword"
+							th:field="${utenteDTO.confirmPassword}">
+						<p th:if="${#fields.hasErrors('confirmPassword')}"
+							th:errorclass="text-danger"
+							th:errors="${utenteDTO.confirmPassword}"></p>
+					</div>
+
+					<button type="submit" class="login-button">Registrati</button>
+				</form>
+
+				<div class="register-section">
+					<p>Hai già un account?</p>
+					<a th:href="@{/login}" class="register-button">Accedi</a>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+</html>

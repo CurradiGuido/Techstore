@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuovo Prodotto - TechStore</title>
+<link rel="stylesheet" href="/css/home/navbar.css">
+<link rel="stylesheet" href="/css/admin/prodotto/aggiungiProdotto.css">
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Navbar -->
+	<header class="navbar" data-aos="fade-down" data-aos-duration="1000">
+		<h1 class="logo">TechStore</h1>
+	</header>
+
+	<!-- Form Categoria -->
+	<div class="form-container" data-aos="zoom-in" data-aos-duration="1000">
+		<h2 data-aos="fade-up" data-aos-delay="100">Inserisci un nuovo
+			prodotto</h2>
+		<form enctype="multipart/form-data" method="post"
+			th:action="@{/prodotto/create}" th:object="${prodottoDTO}">
+
+			<label for="nome" data-aos="fade-right" data-aos-delay="200">Nome
+				prodotto</label> <input type="text" id="nome" name="nome"
+				placeholder="Es. Tastiera Gaming"
+				th:field="${prodottoDTO.nomeProdotto}" data-aos="fade-left"
+				data-aos-delay="200">
+			<p th:if="${#fields.hasErrors('nomeProdotto')}"
+				th:errorclass="text-danger" th:errors="${prodottoDTO.nomeProdotto}"
+				data-aos="fade-up" data-aos-delay="300"></p>
+
+			<label for="descrizione" data-aos="fade-right" data-aos-delay="300">Descrizione</label>
+			<input type="text" id="descrizione" name="descrizione"
+				placeholder="inserisci una descrizione.."
+				th:field="${prodottoDTO.descrizione}" data-aos="fade-left"
+				data-aos-delay="300">
+			<p th:if="${#fields.hasErrors('descrizione')}"
+				th:errorclass="text-danger" th:errors="${prodottoDTO.descrizione}"
+				data-aos="fade-up" data-aos-delay="400"></p>
+
+			<label for="prezzo" data-aos="fade-right" data-aos-delay="300">Prezzo</label>
+			<input type="text" id="prezzo" name="prezzo"
+				placeholder="inserisci un prezzo.." th:field="${prodottoDTO.prezzo}"
+				data-aos="fade-left" data-aos-delay="300">
+			<p th:if="${#fields.hasErrors('prezzo')}" th:errorclass="text-danger"
+				th:errors="${prodottoDTO.prezzo}" data-aos="fade-up"
+				data-aos-delay="400"></p>
+
+			<label for="image" data-aos="fade-right" data-aos-delay="400">Immagine</label>
+			<input class="form-control" type="file" id="image"
+				th:field="${prodottoDTO.image}" data-aos="fade-left"
+				data-aos-delay="400">
+			<div class="form-text" data-aos="fade-up" data-aos-delay="500">
+				Seleziona un'immagine per rappresentare il prodotto (formati
+				supportati: .jpg, .png).</div>
+			<p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger"
+				th:errors="${prodottoDTO.image}" data-aos="fade-up"
+				data-aos-delay="500"></p>
+
+			<div class="row mb-3">
+				<label class="col-sm-4 col-form-label" data-aos="fade-right"
+					data-aos-delay="400">Categoria</label>
+				<div class="col-sm-8">
+					<select class="form-control" name="nomeCategoria"
+						id="nomeCategoria" th:field="*{nomeCategoria}">
+						<option value="" disabled selected>Seleziona categoria</option>
+						<option th:each="categoria : ${categorie}"
+							th:value="${categoria.nomeCategoria}"
+							th:text="${categoria.nomeCategoria}"></option>
+					</select>
+				</div>
+			</div>
+
+
+
+			<div class="d-flex justify-content-between">
+				<a th:href="@{/prodotto/visualizzaProdotti}"
+					class="btn btn-secondary rounded-pill"> Indietro </a>
+				<button type="submit" class="btn btn-primary rounded-pill">
+					Aggiungi Categoria</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- AOS JS -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+    AOS.init();
+  </script>
+
+</body>
+</html>

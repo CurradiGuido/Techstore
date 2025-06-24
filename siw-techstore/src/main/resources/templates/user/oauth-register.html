@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Completa la registrazione</title>
+    <link rel="stylesheet" href="/css/home/oauth.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Benvenuto! Completa la registrazione</h2>
+        <form method="post" action="/oauth/register">
+            <input type="hidden" name="email" th:value="${email}" />
+            <input type="text" name="username" placeholder="Scegli uno username" required/>
+            <input type="password" name="password" placeholder="Scegli una password" required/>
+            <button type="submit">Completa</button>
+        </form>
+    </div>
+</body>
+</html>

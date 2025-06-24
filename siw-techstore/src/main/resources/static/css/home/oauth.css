@@ -1,0 +1,28 @@
+body {
+    background: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-container, .register-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 2rem;
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+input, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    background: linear-gradient(135deg, #3f87a6, #ebf8e1);
+    cursor: pointer;
+}

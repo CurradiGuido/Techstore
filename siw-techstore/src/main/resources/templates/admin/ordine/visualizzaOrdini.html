@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Ordini - Admin</title>
+    <link rel="stylesheet" th:href="@{/css/admin/ordine/ordine.css}">
+
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+    <header data-aos="fade-down" data-aos-duration="1000">
+        <h1 class="logo">TechStore</h1>
+        <a class="btn-signing" th:href="@{/utente/admin/home}">Home</a>
+    </header>
+
+    <div class="container">
+        <h1 class="text-center" data-aos="fade-up" data-aos-duration="1000">Gestione Ordini</h1>
+
+        <table class="order-table" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <thead>
+                <tr>
+                    <th>ID Ordine</th>
+                    <th>Utente</th>
+                    <th>Data Ordine</th>
+                    <th>Stato</th>
+                    <th>Totale</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ordine, iterStat : ${ordini}" 
+                    th:class="${iterStat.index % 2 == 0 ? 'even' : 'odd'}"
+                    data-aos="zoom-in" 
+                    data-aos-delay="300"
+                    data-aos-duration="600">
+                    <td th:text="${ordine.idOrdine}"></td>
+                    <td th:text="${ordine.utente.nome + ' ' + ordine.utente.cognome}"></td>
+                    <td th:text="${#temporals.format(ordine.dataOrdine, 'dd/MM/yyyy HH:mm')}"></td>
+                    <td th:text="${ordine.stato}"></td>
+                    <td th:text="${ordine.totale} + ' €'"></td>
+                    <td>
+                        <a th:href="@{/admin/ordine/dettaglioOrdine/{id}(id=${ordine.idOrdine})}" class="btn">Dettagli</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

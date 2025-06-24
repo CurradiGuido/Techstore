@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Prodotti</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin/prodotto/visualizzaProdotti.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="admin-dashboard">
+
+  <header>
+    <h1 data-aos="fade-down" data-aos-duration="1000" class="logo">Gestione Prodotti</h1>
+    <a data-aos="fade-down" data-aos-duration="2000" class="btn-signing"
+       th:href="@{/utente/admin/home}">Home</a>
+  </header>
+
+  <div class="page-content">
+  <div class="table-wrapper">
+    <table data-aos="fade-up" data-aos-duration="1000">
+      <thead>
+        <tr>
+          <th>ID Prodotto</th>
+          <th>Nome</th>
+          <th>Descrizione</th>
+          <th>Prezzo</th>
+          <th>Categoria</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="prodotto : ${prodotti}" data-aos="fade-up" data-aos-delay="100">
+          <td th:text="${prodotto.idProdotto}"></td>
+          <td th:text="${prodotto.nomeProdotto}"></td>
+          <td th:text="${#strings.abbreviate(prodotto.descrizione, 40)}"></td>
+          <td th:text="${prodotto.prezzo.stripTrailingZeros().toPlainString()} + ' €'"></td>
+          <td th:text="${prodotto.categoria.nomeCategoria}"></td>
+          <td>
+            <div class="actions">
+              <a th:href="@{/prodotto/edit(id=${prodotto.idProdotto})}"
+                 class="btn btn-edit"> <i class="fas fa-edit"></i> Modifica</a>
+              <a th:href="@{/prodotto/delete(id=${prodotto.idProdotto})}"
+                 class="btn btn-delete"> <i class="fas fa-trash"></i> Elimina</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <form method="get" action="/prodotto/create">
+      <button type="submit" class="new-category-btn">
+        <i class="fas fa-plus"></i> Nuovo Prodotto
+      </button>
+    </form>
+
+    </div>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

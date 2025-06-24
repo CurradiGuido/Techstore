@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Categorie</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin/categoria/visualizzaCategorie.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="admin-dashboard">
+
+  <header>
+    <h1 data-aos="fade-down" data-aos-duration="1000" class="logo">Gestione Categorie</h1>
+    <a data-aos="fade-down" data-aos-duration="2000" class="btn-signing"
+       th:href="@{/utente/admin/home}">Home</a>
+  </header>
+
+  <div class="page-content">
+    <table data-aos="fade-up" data-aos-duration="1000">
+      <thead>
+        <tr>
+          <th>ID Categoria</th>
+          <th>Nome</th>
+          <th>Descrizione</th>
+          <th>Numero Prodotti</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="categoria : ${categorie}" data-aos="fade-up" data-aos-delay="100">
+          <td th:text="${categoria.idCategoria}"></td>
+          <td th:text="${categoria.nomeCategoria}"></td>
+          <td th:text="${categoria.descrizione}"></td>
+          <td th:text="${#lists.size(categoria.prodotti)}"></td>
+          <td>
+            <div class="actions">
+              <a th:href="@{/admin/categoria/edit(id=${categoria.idCategoria})}"
+                 class="btn btn-edit"> <i class="fas fa-edit"></i> Modifica</a>
+              <a th:href="@{/admin/categoria/delete(id=${categoria.idCategoria})}"
+                 class="btn btn-delete"> <i class="fas fa-trash"></i> Elimina</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form method="get" action="/admin/categoria/create" data-aos="zoom-in" data-aos-delay="200">
+      <button type="submit" class="new-category-btn">
+        <i class="fas fa-plus"></i> Nuova Categoria
+      </button>
+    </form>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

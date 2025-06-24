@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Checkout - TechStore</title>
+<link rel="stylesheet" th:href="@{/css/home/checkout.css}" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container">
+		<header>
+			<h1 class="logo">TechStore</h1>
+			<a class="btn-signing" th:href="@{/carrello/visualizzaCarrello}">Torna
+				al carrello</a>
+		</header>
+	</div>
+
+	<main class="checkout-container">
+		<h2 data-aos="fade-down" data-aos-duration="1200">Conferma il tuo
+			ordine</h2>
+
+		<form th:action="@{/carrello/checkout}" th:object="${ordineDTO}"
+			method="post" data-aos="fade-up" data-aos-duration="1000">
+
+			<label>Indirizzo</label> <input type="text" th:field="*{indirizzo}" />
+
+			<label>Civico</label> <input type="text" th:field="*{civico}" /> <label>CAP</label>
+			<input type="text" th:field="*{cap}" /> <label>Città</label> <input
+				type="text" th:field="*{citta}" /> <label>Paese</label> <input
+				type="text" th:field="*{paese}" />
+
+			<p>
+				Totale da pagare: <strong th:text="${totale} + ' €'"></strong>
+			</p>
+			<input type="hidden" th:name="totale" th:value="${totale}" />
+
+			<button type="submit" data-aos="zoom-in">Conferma Ordine</button>
+		</form>
+
+	</main>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+
+</body>
+</html>

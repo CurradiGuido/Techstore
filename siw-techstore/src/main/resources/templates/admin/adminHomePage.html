@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechStore</title>
+<link href="/css/admin/admin.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+	<img class="image-gradient" src="/images/homePage/gradient.png"
+		alt="gradient">
+	<div class="layer-blur"></div>
+
+	<div class="container">
+		<header>
+			<h1 data-aos="fade-down" data-aos-duration="1000" class="logo">TechStore</h1>
+			<a data-aos="fade-down" data-aos-duration="2000" class="btn-signing"
+				th:href="@{/logout}">Logout</a>
+
+		</header>
+		<section class="admin-dashboard">
+			<h1 data-aos="fade-down" data-aos-duration="3000" class="admin-title">Benvenuto gui98!</h1>
+			<p data-aos="fade-down" data-aos-duration="1500" class="admin-subtitle">Gestisci in autonomia le sezioni
+				principali del tuo e-commerce.</p>
+
+			<div class="card-container">
+				<a data-aos="fade-down" data-aos-duration="500" th:href="@{/admin/categoria/visualizzaCategorie}" class="admin-card"> <i
+					class="fas fa-tags fa-2x icon"></i>
+					<h2>Categorie</h2>
+					<p>Modifica o aggiungi nuove categorie di prodotti.</p>
+				</a> <a data-aos="fade-down" data-aos-duration="700" th:href="@{/prodotto/visualizzaProdotti}" class="admin-card"> <i
+					class="fas fa-boxes fa-2x icon"></i>
+					<h2>Prodotti</h2>
+					<p>Gestisci il catalogo, prezzi e disponibilità.</p>
+				</a> <a data-aos="fade-down" data-aos-duration="900" th:href="@{/admin/ordine/visualizzaOrdini}" class="admin-card"> <i
+					class="fas fa-receipt fa-2x icon"></i>
+					<h2>Ordini</h2>
+					<p>Controlla e aggiorna lo stato degli ordini effettuati.</p>
+				</a>
+				<a data-aos="fade-down" data-aos-duration="900" th:href="@{/utente/visualizzaUtenti}" class="admin-card"> <i
+					class="fas fa-receipt fa-2x icon"></i>
+					<h2>Utenti</h2>
+					<p>Controlla e gestisci gli utenti registrati al tuo ecommerce.</p>
+				</a>
+			</div>
+		</section>
+
+
+		<spline-viewer data-aos="fade-zoom-in" data-aos-easing="ease-in-back"
+			data-aos-delay="300" data-aos-offset="0" data-aos-duration="3000"
+			class="robot-3d"
+			url="https://prod.spline.design/zOswd-DMa-6UTQuz/scene.splinecode"></spline-viewer>
+		<div class="robot-overlay"></div>
+	</div>
+
+
+	<script type="module"
+		src="https://unpkg.com/@splinetool/viewer@1.9.89/build/spline-viewer.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+    AOS.init();
+  </script>
+</body>
+
+
+</html>

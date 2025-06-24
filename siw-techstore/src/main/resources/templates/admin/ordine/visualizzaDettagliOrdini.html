@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio Ordine</title>
+    <link rel="stylesheet" th:href="@{/css/admin/ordine/dettaglioOrdine.css}">
+    <link rel="stylesheet" th:href="@{/css/aos.css}">
+</head>
+<body class="dark-mode" data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
+
+<header>
+    <h1 class="logo" data-aos="fade-down">TechStore</h1>
+    <a class="btn-signing" data-aos="fade-down" data-aos-delay="300" th:href="@{/utente/admin/home}">Home</a>
+</header>
+
+<div class="container" data-aos="fade-up">
+    <h2>Dettaglio Ordine #<span th:text="${ordine.idOrdine}"></span></h2>
+
+    <section class="ordine-info">
+        <p><strong>Utente:</strong> <span th:text="${ordine.utente.nome + ' ' + ordine.utente.cognome}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${ordine.utente.email}"></span></p>
+        <p><strong>Data Ordine:</strong> <span th:text="${#temporals.format(ordine.dataOrdine, 'dd/MM/yyyy HH:mm')}"></span></p>
+        <p><strong>Stato:</strong> <span th:text="${ordine.stato}"></span></p>
+        <p><strong>Totale:</strong> <span th:text="${ordine.totale + ' €'}"></span></p>
+    </section>
+
+    <h3>Prodotti Ordinati</h3>
+    <table class="order-details-table" data-aos="fade-up">
+        <thead>
+            <tr>
+                <th>Prodotto</th>
+                <th>Quantità</th>
+                <th>Prezzo unitario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="voce : ${vociOrdine}">
+                <td th:text="${voce.prodotto.nomeProdotto}"></td>
+                <td th:text="${voce.quantita}"></td>
+                <td th:text="${voce.prezzo + ' €'}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="actions" data-aos="fade-up">
+        <a th:href="@{/admin/ordine/visualizzaOrdini}" class="btn">Torna alla lista</a>
+    </div>
+</div>
+
+<script th:src="@{/js/aos.js}"></script>
+<script>
+    AOS.init();
+</script>
+
+</body>
+</html>
